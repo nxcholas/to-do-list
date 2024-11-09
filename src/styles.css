@@ -1,0 +1,450 @@
+@font-face {
+    font-family: 'Munroe';
+    src: url('./Munro-2LYe.ttf');
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'munroe';
+}
+
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+::-webkit-scrollbar-track{
+    background-color: none;
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--blue-light);
+    border-radius: 100vw;
+}
+
+:root {
+    --cyan-1: #1dd3b0;
+    --blue-light: #cdf7f6;
+    --blue-reg: #086375;
+    --purple: #3c1642;
+    --white: white;
+    --background-darkgray: #212832;
+    --background-lightgray: #2d333b;
+    --accent-lightgreen: #1dd3b0;
+    --accent-darkgreen: #18b495;
+}
+
+body{
+    background-color: var(--background-darkgray);
+    color: white;
+    margin: 0;
+    padding: 3%;
+    overflow: hidden;
+}
+
+header {
+    padding: 1% 4%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+    border: 2px dashed var(--background-lightgray);
+}
+
+.buttonsList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 15rem;
+}
+
+#main {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+#todo-section {
+    width: 30%;
+    min-width: 195px;
+    height: 75vh;
+    border: 2px dashed var(--background-lightgray);
+    overflow: scroll; /* Use this if you want scrolling without showing scrollbars */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+    scrollbar-width: none;     /* For Firefox */
+}
+
+#calendar-section {
+    width: 68%;
+    border: 2px dashed var(--background-lightgray);
+    height: 75vh;
+}
+
+#calendar-text {
+    display: flex;
+    justify-content: space-between;
+    width: 97%;
+}
+
+.headings {
+    padding-left: 3%;
+    border-bottom: 2px dashed var(--background-lightgray);
+}
+
+#tasks-container,
+#project-container {
+    overflow: scroll; /* Use this if you want scrolling without showing scrollbars */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+    scrollbar-width: none;     /* For Firefox */
+    max-height: 85%;
+    padding: 4%;
+}
+
+.project-header,
+.task-header {
+    border: 2px dashed var(--background-lightgray);
+    border-right: none;
+    border-left: none;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.project-header {
+    border-top: 0;
+}
+
+#tasks-heading,
+#project-heading{
+    display: flex;
+    height: 15%;
+    justify-content: space-between;
+}
+
+#tasks-heading > h1 {
+    width: 83%;
+}
+
+#tasks-heading > button {
+    font-size: 24px;
+    color: white;
+    margin-right: 5.6%;
+}
+
+.tasks,
+.projects {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 5% 0;
+    border-top: 2px dashed var(--background-lightgray);
+    overflow-y: auto;
+}
+
+
+.taskTitleSection,
+.projectTitleSection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+}
+
+.task-title,
+.project-title {
+    margin: 0;
+}
+
+.project-heading-text {
+    display: flex;
+}
+
+.removeTaskBtn,
+.removeProjectBtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.dropdownBtn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1em;
+    padding: 4px 8px 2px 8px;
+    cursor: pointer;
+    
+}
+
+.dropdownBtn:hover {
+    color: var(--blue-light);
+}
+
+.removeTaskBtn:hover,
+.removeProjectBtn:hover {
+    color: var(--blue-light);
+}
+
+.description-container {
+    height: 3em;
+    text-align: left;
+    color: gray;
+}
+
+.description-text {
+    margin: 0;
+    height: 85%;
+    max-height: 48px;
+    overflow-y: auto;
+}
+
+.btnCheckList,
+.projectBtnChecklist {
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+    height: 2.7rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.btnCheckList > button,
+.projectBtnChecklist > button {
+    color: rgb(255, 255, 255);
+    background-color: var(--background-lightgray);
+    border-radius: 5%;
+    border: 2px dashed;
+    border-color: gray;
+    flex: 1;
+    font-size: 1rem;
+    width: 34%;
+}
+
+.completedBtn {
+    cursor: pointer;
+}
+
+.dateBtn {
+    background-color: #8c64fa;
+    border-color: #7d4eff;
+    color: white;
+}
+
+#project-tasks-container {
+    overflow: scroll; /* Use this if you want scrolling without showing scrollbars */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+    scrollbar-width: none;     /* For Firefox */
+}
+
+#modal {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 800px;
+    height: 80vh;
+    border: 2px dashed gray;
+    background-color: var(--background-lightgray);
+    border-radius: 1em;
+    color: white;
+    min-height: 388px;
+    overflow: hidden;
+}
+
+#modal::backdrop {
+    backdrop-filter: blur(5px);
+}
+
+#closeModalBtn {
+    position: absolute;
+    top: 7%;
+    right: 4%;
+    background: none;
+    color: white;
+    font-size: 32px;
+    border: none;
+    cursor: pointer;
+}
+
+#closeModalBtn:hover {
+    color: var(--blue-light);
+}
+
+#openModalBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#openModalBtn:hover {
+    color: var(--blue-light);
+}
+
+#modalHeading {
+    border-bottom: 2px dashed gray;
+    width: 100%;
+    height: 15%;
+    min-height: 53px;
+}
+
+
+#modal-content {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+}
+
+#tab-container {
+    width: 30%;
+    border-right: 2px dashed gray;
+    height: 104%;
+    text-align: center;
+}
+
+.modal-tab-selector {
+    cursor: pointer;
+}
+
+.modal-tab-selector:hover {
+    color: var(--blue-light);
+}
+
+#form-container {
+    width: 70%;
+    padding-left: 4%;
+    padding-top: 3%;
+}
+
+#task-form,
+#project-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.labels {
+    display: flex;
+    justify-content: space-between;
+    height: 2em;
+}
+
+label {
+    font-size: 22px;
+}
+
+.labels > input,
+.labels > select {
+    width: 70%;
+    border: 2px dashed gray;
+    background-color: #212832;
+    color: white;
+    border-radius: 5%;
+    outline: none;
+    padding: 0.5em;
+}
+
+#project-description {
+    height: 7rem;
+    text-align: left;
+    vertical-align: top;
+    width: 70%;
+    border: 2px dashed gray;
+    background-color: #212832;
+    color: white;
+    border-radius: 5%;
+    outline: none;
+    padding: 0.5em;
+    resize: none;
+}
+
+.labels > input:focus {
+    border: 2px dashed var(--blue-light);
+}
+
+#priorityBtns {
+    display: flex;
+    width: 75.6%;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+#priorityBtns > input {
+    width: 30%;
+    background: none;
+    border: 2px dashed gray;
+    cursor: pointer;
+    color: white;
+}
+
+#lowBtn:hover {
+    background-color: var(--accent-lightgreen);
+    border: 2px dashed var(--accent-darkgreen);
+}
+
+
+#medBtn:hover {
+    background-color: gold;
+    border: 2px dashed goldenrod;
+}
+
+#highBtn:hover {
+    background-color: red;
+    border: 2px dashed firebrick;
+}
+
+#submitTaskBtn,
+#submitProjectBtn {
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    background: none;
+    font-size: 36px;
+    color: white;
+    border-radius: 10%;
+    border: 2px dashed gray;
+    cursor: pointer;
+}
+
+#submitTaskBtn:hover,
+#submitProjectBtn:hover {
+    color: var(--blue-light);
+    border: 2px dashed var(--blue-light);
+}
+
+/* calendar section */
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns */
+    grid-template-rows: auto repeat(5, 1fr); /* 1 row for days, 5 rows for dates */
+    gap: 5px;
+    width: 95%;
+    margin: 20px auto;
+    height: 80%;
+}
+
+.calendar-day, .day-header {
+    border: 1px dashed var(--background-lightgray);
+    padding: 0.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.day-header {
+    font-weight: bold;
+}
+
+.calendar-day.today {
+    border-color:  var(--accent-lightgreen);
+}
+
+.project-name {
+    color: var(--blue-light);
+}

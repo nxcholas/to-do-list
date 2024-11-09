@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>to-do app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></head>
+  <body>
+    <header>
+      <p>logo</p>
+      <div class="buttonsList">
+        <button class="options"></button>
+        <button class="options"></button>
+        <button class="options"></button>
+      </div>
+    </header>
+    <div id="main">
+      <div id="todo-section">
+        <div id="tasks-heading" class="headings">
+          <h1>Todos</h1>
+          <button id="openModalBtn">&plus;</button>
+        </div>
+        <h2 class="project-header">Projects</h2>
+        <div id="project-container">
+        </div>
+        <h2 class="task-header">Tasks</h2>
+        <div id="tasks-container">
+        </div>
+      </div>
+      <div id="calendar-section">
+        <div id="calendar-heading" class="headings">
+          <div id="calendar-text">
+            <h1>Calendar</h1>
+            <h1 id="monthName">January</h1>
+          </div>
+        </div>
+        <div id="calendar"></div>
+        </div>
+      </div>
+        <dialog id="modal">
+          <div id="modalHeading">
+            <h1 id="modalHeadingText"></h1>
+            <button id="closeModalBtn">&times;</button>
+          </div>
+          <div id="modal-content">
+            <div id="tab-container">
+              <h1 class="modal-tab-selector" id="taskBtn">task</h1>
+              <h1 class="modal-tab-selector" id="projectBtn">project</h1>
+            </div>
+            <div id="form-container">
+              
+            </div>
+          </div>
+        </dialog>
+      </div>
+  </body>
+  <script defer src="main.js"></script></body>
+</html>
